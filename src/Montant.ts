@@ -16,5 +16,17 @@ export class Montant {
         return new Montant(cents)
     }
 
+    additionner(m: Montant): Montant {
+        return new Montant(this.value + m.value)
+    }
+
+    multiplier(quantite: number): Montant {
+        return new Montant(this.value * quantite)
+    }
+
+    appliquerRemise(pourcentage: number): Montant {
+        return new Montant(Math.round((this.value * (100 - pourcentage)) / 100))
+    }
+
     getValue() { return this.value }
 }
