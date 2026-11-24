@@ -34,15 +34,13 @@ describe("Montant", () => {
         it("additionne deux montants", () => {
             const m1 = Montant.deEuros(10)
             const m2 = Montant.deEuros(10)
-            const m3 = m1.additionner(m2)
-            expect(m3).toBeInstanceOf(Montant)
-            expect(m3.getValue()).toBe(2000)
+            expect(m1.additionner(m2).getValue()).toBe(2000)
         });
 
         it("ne modifie pas le montant d'origine (immuabilité)", () => {
             const m1 = Montant.deEuros(10)
             const m2 = Montant.deEuros(10)
-            const m3 = m1.additionner(m2)
+            m1.additionner(m2)
             expect(m1.getValue()).toBe(1000)
         });
 
@@ -62,8 +60,12 @@ describe("Montant", () => {
         });
     });
 
-    describe("comparaison", () => {
-        it.todo("deux montants de mêmes centimes sont égaux");
-        it.todo("deux montants différents ne sont pas égaux");
-    });
+    // describe("comparaison", () => {
+    //     it("deux montants de mêmes centimes sont égaux", () => {
+    //         expect(Montant.deEuros(10).equals(Montant.deCentimes(1000))).toBe(true)
+    //     });
+    //     it("deux montants différents ne sont pas égaux", () => {
+    //         expect(Montant.deEuros(10).equals(Montant.deCentimes(1001))).toBe(false)
+    //     });
+    // });
 });

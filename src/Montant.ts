@@ -28,5 +28,9 @@ export class Montant {
         return new Montant(Math.round((this.value * (100 - pourcentage)) / 100))
     }
 
+    equals(m: Montant): boolean {
+        return this.value === m.value
+    }
+
     getValue() { return this.value }
 }
